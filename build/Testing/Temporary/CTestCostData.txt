@@ -1,0 +1,3 @@
+AllUnitTests 2 0
+---
+AllUnitTests

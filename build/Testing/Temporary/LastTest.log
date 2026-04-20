@@ -1,0 +1,38 @@
+Start testing: Apr 19 21:27 CST
+----------------------------------------------------------
+1/1 Testing: AllUnitTests
+1/1 Test: AllUnitTests
+Command: "/home/gew/work/tutorial/webserver/build/tests/unit_tests"
+Directory: /home/gew/work/tutorial/webserver/build/tests
+"AllUnitTests" start time: Apr 19 21:27 CST
+Output:
+----------------------------------------------------------
+Running main() from /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ThreadPoolTest
+[ RUN      ] ThreadPoolTest.HeavyDutyWorkload
+/home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc:40: Failure
+Expected: (duration.count()) < (1000), actual: 2497 vs 1000
+性能未达标！
+
+
+[  FAILED  ] ThreadPoolTest.HeavyDutyWorkload (2497 ms)
+[----------] 1 test from ThreadPoolTest (2497 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (2497 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] ThreadPoolTest.HeavyDutyWorkload
+
+ 1 FAILED TEST
+<end of output>
+Test time =   2.50 sec
+----------------------------------------------------------
+Test Failed.
+"AllUnitTests" end time: Apr 19 21:27 CST
+"AllUnitTests" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Apr 19 21:27 CST
