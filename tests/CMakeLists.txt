@@ -2,6 +2,7 @@ add_executable(unit_tests
     test_main.cc # 自动机定义的 main 入口，也可以不写，使用 gtest_main 入口
     utils/thread_pool_test.cc # TEST() 宏
     utils/logger_test.cc
+    utils/timer_test.cc
 )
 
 # GTest::gtest_main 是 googletest 提供的 main 入口，类似这样：

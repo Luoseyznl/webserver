@@ -329,12 +329,12 @@ tests/CMakeFiles/unit_tests.dir/all: _deps/googletest-build/googletest/CMakeFile
 tests/CMakeFiles/unit_tests.dir/all: src/CMakeFiles/chat_core.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=22,23,24,25 "Built target unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=22,23,24,25,26 "Built target unit_tests"
 .PHONY : tests/CMakeFiles/unit_tests.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/unit_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gew/work/tutorial/webserver/build/CMakeFiles 19
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gew/work/tutorial/webserver/build/CMakeFiles 20
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/unit_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gew/work/tutorial/webserver/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/unit_tests.dir/rule

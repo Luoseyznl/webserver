@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/gew/work/tutorial/webserver/tests/test_main.cc" "tests/CMakeFiles/unit_tests.dir/test_main.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/test_main.cc.o.d"
   "/home/gew/work/tutorial/webserver/tests/utils/logger_test.cc" "tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o.d"
   "/home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc" "tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o.d"
+  "/home/gew/work/tutorial/webserver/tests/utils/timer_test.cc" "tests/CMakeFiles/unit_tests.dir/utils/timer_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/utils/timer_test.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

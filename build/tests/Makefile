@@ -257,6 +257,30 @@ utils/thread_pool_test.cc.s:
 	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.s
 .PHONY : utils/thread_pool_test.cc.s
 
+utils/timer_test.o: utils/timer_test.cc.o
+.PHONY : utils/timer_test.o
+
+# target to build an object file
+utils/timer_test.cc.o:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/timer_test.cc.o
+.PHONY : utils/timer_test.cc.o
+
+utils/timer_test.i: utils/timer_test.cc.i
+.PHONY : utils/timer_test.i
+
+# target to preprocess a source file
+utils/timer_test.cc.i:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/timer_test.cc.i
+.PHONY : utils/timer_test.cc.i
+
+utils/timer_test.s: utils/timer_test.cc.s
+.PHONY : utils/timer_test.s
+
+# target to generate assembly for a file
+utils/timer_test.cc.s:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/timer_test.cc.s
+.PHONY : utils/timer_test.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -280,6 +304,9 @@ help:
 	@echo "... utils/thread_pool_test.o"
 	@echo "... utils/thread_pool_test.i"
 	@echo "... utils/thread_pool_test.s"
+	@echo "... utils/timer_test.o"
+	@echo "... utils/timer_test.i"
+	@echo "... utils/timer_test.s"
 .PHONY : help
 
 
