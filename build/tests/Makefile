@@ -209,6 +209,30 @@ test_main.cc.s:
 	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_main.cc.s
 .PHONY : test_main.cc.s
 
+utils/logger_test.o: utils/logger_test.cc.o
+.PHONY : utils/logger_test.o
+
+# target to build an object file
+utils/logger_test.cc.o:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o
+.PHONY : utils/logger_test.cc.o
+
+utils/logger_test.i: utils/logger_test.cc.i
+.PHONY : utils/logger_test.i
+
+# target to preprocess a source file
+utils/logger_test.cc.i:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.i
+.PHONY : utils/logger_test.cc.i
+
+utils/logger_test.s: utils/logger_test.cc.s
+.PHONY : utils/logger_test.s
+
+# target to generate assembly for a file
+utils/logger_test.cc.s:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.s
+.PHONY : utils/logger_test.cc.s
+
 utils/thread_pool_test.o: utils/thread_pool_test.cc.o
 .PHONY : utils/thread_pool_test.o
 
@@ -250,6 +274,9 @@ help:
 	@echo "... test_main.o"
 	@echo "... test_main.i"
 	@echo "... test_main.s"
+	@echo "... utils/logger_test.o"
+	@echo "... utils/logger_test.i"
+	@echo "... utils/logger_test.s"
 	@echo "... utils/thread_pool_test.o"
 	@echo "... utils/thread_pool_test.i"
 	@echo "... utils/thread_pool_test.s"

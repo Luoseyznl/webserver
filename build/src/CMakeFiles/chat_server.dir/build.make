@@ -73,15 +73,15 @@ src/CMakeFiles/chat_server.dir/main.cc.o: src/CMakeFiles/chat_server.dir/flags.m
 src/CMakeFiles/chat_server.dir/main.cc.o: /home/gew/work/tutorial/webserver/src/main.cc
 src/CMakeFiles/chat_server.dir/main.cc.o: src/CMakeFiles/chat_server.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/chat_server.dir/main.cc.o"
-	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat_server.dir/main.cc.o -MF CMakeFiles/chat_server.dir/main.cc.o.d -o CMakeFiles/chat_server.dir/main.cc.o -c /home/gew/work/tutorial/webserver/src/main.cc
+	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat_server.dir/main.cc.o -MF CMakeFiles/chat_server.dir/main.cc.o.d -o CMakeFiles/chat_server.dir/main.cc.o -c /home/gew/work/tutorial/webserver/src/main.cc
 
 src/CMakeFiles/chat_server.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chat_server.dir/main.cc.i"
-	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/src/main.cc > CMakeFiles/chat_server.dir/main.cc.i
+	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/src/main.cc > CMakeFiles/chat_server.dir/main.cc.i
 
 src/CMakeFiles/chat_server.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chat_server.dir/main.cc.s"
-	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/src/main.cc -o CMakeFiles/chat_server.dir/main.cc.s
+	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/src/main.cc -o CMakeFiles/chat_server.dir/main.cc.s
 
 # Object files for target chat_server
 chat_server_OBJECTS = \

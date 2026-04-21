@@ -19,7 +19,7 @@ long long fibonacci(int n) {
 namespace utils {
 // TEST(TestCaseName, TestName)
 TEST(ThreadPoolTest, HeavyDutyWorkload) {
-  ThreadPool pool(1);
+  ThreadPool pool(16);
   std::vector<std::future<long long>> results;
 
   auto start_time = std::chrono::steady_clock::now();

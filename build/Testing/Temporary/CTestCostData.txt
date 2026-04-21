@@ -1,3 +1,2 @@
-AllUnitTests 2 0
+AllUnitTests 9 0.150072
 ---
-AllUnitTests

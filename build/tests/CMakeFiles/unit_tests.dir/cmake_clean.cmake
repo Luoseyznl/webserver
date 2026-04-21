@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/unit_tests.dir/test_main.cc.o"
   "CMakeFiles/unit_tests.dir/test_main.cc.o.d"
+  "CMakeFiles/unit_tests.dir/utils/logger_test.cc.o"
+  "CMakeFiles/unit_tests.dir/utils/logger_test.cc.o.d"
   "CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o"
   "CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o.d"
   "unit_tests"

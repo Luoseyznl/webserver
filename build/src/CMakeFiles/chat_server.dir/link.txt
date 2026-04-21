@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -g -O0 CMakeFiles/chat_server.dir/main.cc.o -o chat_server  libchat_core.a /usr/lib/x86_64-linux-gnu/libsqlite3.so 
+/usr/bin/g++ -g -g -O0 CMakeFiles/chat_server.dir/main.cc.o -o chat_server  libchat_core.a /usr/lib/x86_64-linux-gnu/libsqlite3.so 

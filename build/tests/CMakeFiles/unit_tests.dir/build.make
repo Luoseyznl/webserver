@@ -73,47 +73,63 @@ tests/CMakeFiles/unit_tests.dir/test_main.cc.o: tests/CMakeFiles/unit_tests.dir/
 tests/CMakeFiles/unit_tests.dir/test_main.cc.o: /home/gew/work/tutorial/webserver/tests/test_main.cc
 tests/CMakeFiles/unit_tests.dir/test_main.cc.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/unit_tests.dir/test_main.cc.o"
-	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/test_main.cc.o -MF CMakeFiles/unit_tests.dir/test_main.cc.o.d -o CMakeFiles/unit_tests.dir/test_main.cc.o -c /home/gew/work/tutorial/webserver/tests/test_main.cc
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/test_main.cc.o -MF CMakeFiles/unit_tests.dir/test_main.cc.o.d -o CMakeFiles/unit_tests.dir/test_main.cc.o -c /home/gew/work/tutorial/webserver/tests/test_main.cc
 
 tests/CMakeFiles/unit_tests.dir/test_main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/test_main.cc.i"
-	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/tests/test_main.cc > CMakeFiles/unit_tests.dir/test_main.cc.i
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/tests/test_main.cc > CMakeFiles/unit_tests.dir/test_main.cc.i
 
 tests/CMakeFiles/unit_tests.dir/test_main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/test_main.cc.s"
-	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/tests/test_main.cc -o CMakeFiles/unit_tests.dir/test_main.cc.s
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/tests/test_main.cc -o CMakeFiles/unit_tests.dir/test_main.cc.s
 
 tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o: tests/CMakeFiles/unit_tests.dir/flags.make
 tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o: /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc
 tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o"
-	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o -MF CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o.d -o CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o -c /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o -MF CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o.d -o CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o -c /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc
 
 tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.i"
-	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc > CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.i
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc > CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.i
 
 tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.s"
-	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc -o CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.s
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc -o CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.s
+
+tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o: tests/CMakeFiles/unit_tests.dir/flags.make
+tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o: /home/gew/work/tutorial/webserver/tests/utils/logger_test.cc
+tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o: tests/CMakeFiles/unit_tests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o"
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o -MF CMakeFiles/unit_tests.dir/utils/logger_test.cc.o.d -o CMakeFiles/unit_tests.dir/utils/logger_test.cc.o -c /home/gew/work/tutorial/webserver/tests/utils/logger_test.cc
+
+tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/unit_tests.dir/utils/logger_test.cc.i"
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/tests/utils/logger_test.cc > CMakeFiles/unit_tests.dir/utils/logger_test.cc.i
+
+tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/unit_tests.dir/utils/logger_test.cc.s"
+	cd /home/gew/work/tutorial/webserver/build/tests && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/tests/utils/logger_test.cc -o CMakeFiles/unit_tests.dir/utils/logger_test.cc.s
 
 # Object files for target unit_tests
 unit_tests_OBJECTS = \
 "CMakeFiles/unit_tests.dir/test_main.cc.o" \
-"CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o"
+"CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o" \
+"CMakeFiles/unit_tests.dir/utils/logger_test.cc.o"
 
 # External object files for target unit_tests
 unit_tests_EXTERNAL_OBJECTS =
 
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/test_main.cc.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o
+tests/unit_tests: tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
 tests/unit_tests: lib/libgtest_main.a
 tests/unit_tests: src/libchat_core.a
 tests/unit_tests: lib/libgtest.a
 tests/unit_tests: /usr/lib/x86_64-linux-gnu/libsqlite3.so
 tests/unit_tests: tests/CMakeFiles/unit_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable unit_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable unit_tests"
 	cd /home/gew/work/tutorial/webserver/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unit_tests.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
