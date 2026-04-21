@@ -439,30 +439,6 @@ utils/timer.cc.s:
 	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat_core.dir/build.make src/CMakeFiles/chat_core.dir/utils/timer.cc.s
 .PHONY : utils/timer.cc.s
 
-utils/work_stealing_thread_pool.o: utils/work_stealing_thread_pool.cc.o
-.PHONY : utils/work_stealing_thread_pool.o
-
-# target to build an object file
-utils/work_stealing_thread_pool.cc.o:
-	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat_core.dir/build.make src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o
-.PHONY : utils/work_stealing_thread_pool.cc.o
-
-utils/work_stealing_thread_pool.i: utils/work_stealing_thread_pool.cc.i
-.PHONY : utils/work_stealing_thread_pool.i
-
-# target to preprocess a source file
-utils/work_stealing_thread_pool.cc.i:
-	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat_core.dir/build.make src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.i
-.PHONY : utils/work_stealing_thread_pool.cc.i
-
-utils/work_stealing_thread_pool.s: utils/work_stealing_thread_pool.cc.s
-.PHONY : utils/work_stealing_thread_pool.s
-
-# target to generate assembly for a file
-utils/work_stealing_thread_pool.cc.s:
-	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/chat_core.dir/build.make src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.s
-.PHONY : utils/work_stealing_thread_pool.cc.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -508,9 +484,6 @@ help:
 	@echo "... utils/timer.o"
 	@echo "... utils/timer.i"
 	@echo "... utils/timer.s"
-	@echo "... utils/work_stealing_thread_pool.o"
-	@echo "... utils/work_stealing_thread_pool.i"
-	@echo "... utils/work_stealing_thread_pool.s"
 .PHONY : help
 
 

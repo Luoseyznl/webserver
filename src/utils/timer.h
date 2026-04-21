@@ -10,7 +10,9 @@
 
 namespace utils {
 
-// TODO: Dispatch expired timer callbacks to a thread pool
+/**
+ * @todo Dispatch expired timer callbacks to a thread pool.
+ */
 class Timer {
  public:
   struct Task {
@@ -58,4 +60,3 @@ class Timer {
 };
 
 }  // namespace utils
-

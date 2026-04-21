@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/unit_tests.dir/http/http_request_test.cc.o"
+  "CMakeFiles/unit_tests.dir/http/http_request_test.cc.o.d"
+  "CMakeFiles/unit_tests.dir/http/http_response_test.cc.o"
+  "CMakeFiles/unit_tests.dir/http/http_response_test.cc.o.d"
+  "CMakeFiles/unit_tests.dir/http/http_server_test.cc.o"
+  "CMakeFiles/unit_tests.dir/http/http_server_test.cc.o.d"
   "CMakeFiles/unit_tests.dir/test_main.cc.o"
   "CMakeFiles/unit_tests.dir/test_main.cc.o.d"
   "CMakeFiles/unit_tests.dir/utils/logger_test.cc.o"

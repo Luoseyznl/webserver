@@ -17,8 +17,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/chat_core.dir/utils/thread_pool.cc.o.d"
   "CMakeFiles/chat_core.dir/utils/timer.cc.o"
   "CMakeFiles/chat_core.dir/utils/timer.cc.o.d"
-  "CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o"
-  "CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o.d"
   "libchat_core.a"
   "libchat_core.pdb"
 )

@@ -7,7 +7,6 @@ set(CORE_SOURCES
     chat/user.cc
     utils/thread_pool.cc
     utils/logger.cc
-    utils/work_stealing_thread_pool.cc
     utils/timer.cc
     db/database_manager.cc
 )

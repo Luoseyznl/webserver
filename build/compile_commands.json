@@ -67,12 +67,6 @@
 },
 {
   "directory": "/home/gew/work/tutorial/webserver/build/src",
-  "command": "/usr/bin/g++  -I/home/gew/work/tutorial/webserver/src -I/home/gew/work/tutorial/webserver/third_party -g -g -O0 -std=gnu++17 -o CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o -c /home/gew/work/tutorial/webserver/src/utils/work_stealing_thread_pool.cc",
-  "file": "/home/gew/work/tutorial/webserver/src/utils/work_stealing_thread_pool.cc",
-  "output": "src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o"
-},
-{
-  "directory": "/home/gew/work/tutorial/webserver/build/src",
   "command": "/usr/bin/g++  -I/home/gew/work/tutorial/webserver/src -I/home/gew/work/tutorial/webserver/third_party -g -g -O0 -std=gnu++17 -o CMakeFiles/chat_core.dir/utils/timer.cc.o -c /home/gew/work/tutorial/webserver/src/utils/timer.cc",
   "file": "/home/gew/work/tutorial/webserver/src/utils/timer.cc",
   "output": "src/CMakeFiles/chat_core.dir/utils/timer.cc.o"
@@ -112,5 +106,23 @@
   "command": "/usr/bin/g++  -I/home/gew/work/tutorial/webserver/src -I/home/gew/work/tutorial/webserver/third_party -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest -g -g -O0 -std=gnu++17 -o CMakeFiles/unit_tests.dir/utils/timer_test.cc.o -c /home/gew/work/tutorial/webserver/tests/utils/timer_test.cc",
   "file": "/home/gew/work/tutorial/webserver/tests/utils/timer_test.cc",
   "output": "tests/CMakeFiles/unit_tests.dir/utils/timer_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/webserver/build/tests",
+  "command": "/usr/bin/g++  -I/home/gew/work/tutorial/webserver/src -I/home/gew/work/tutorial/webserver/third_party -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest -g -g -O0 -std=gnu++17 -o CMakeFiles/unit_tests.dir/http/http_response_test.cc.o -c /home/gew/work/tutorial/webserver/tests/http/http_response_test.cc",
+  "file": "/home/gew/work/tutorial/webserver/tests/http/http_response_test.cc",
+  "output": "tests/CMakeFiles/unit_tests.dir/http/http_response_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/webserver/build/tests",
+  "command": "/usr/bin/g++  -I/home/gew/work/tutorial/webserver/src -I/home/gew/work/tutorial/webserver/third_party -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest -g -g -O0 -std=gnu++17 -o CMakeFiles/unit_tests.dir/http/http_request_test.cc.o -c /home/gew/work/tutorial/webserver/tests/http/http_request_test.cc",
+  "file": "/home/gew/work/tutorial/webserver/tests/http/http_request_test.cc",
+  "output": "tests/CMakeFiles/unit_tests.dir/http/http_request_test.cc.o"
+},
+{
+  "directory": "/home/gew/work/tutorial/webserver/build/tests",
+  "command": "/usr/bin/g++  -I/home/gew/work/tutorial/webserver/src -I/home/gew/work/tutorial/webserver/third_party -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest/include -isystem /home/gew/work/tutorial/webserver/build/_deps/googletest-src/googletest -g -g -O0 -std=gnu++17 -o CMakeFiles/unit_tests.dir/http/http_server_test.cc.o -c /home/gew/work/tutorial/webserver/tests/http/http_server_test.cc",
+  "file": "/home/gew/work/tutorial/webserver/tests/http/http_server_test.cc",
+  "output": "tests/CMakeFiles/unit_tests.dir/http/http_server_test.cc.o"
 }
 ]

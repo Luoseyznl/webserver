@@ -167,24 +167,10 @@ src/CMakeFiles/chat_core.dir/utils/logger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chat_core.dir/utils/logger.cc.s"
 	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/src/utils/logger.cc -o CMakeFiles/chat_core.dir/utils/logger.cc.s
 
-src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o: src/CMakeFiles/chat_core.dir/flags.make
-src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o: /home/gew/work/tutorial/webserver/src/utils/work_stealing_thread_pool.cc
-src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o: src/CMakeFiles/chat_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o"
-	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o -MF CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o.d -o CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o -c /home/gew/work/tutorial/webserver/src/utils/work_stealing_thread_pool.cc
-
-src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.i"
-	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gew/work/tutorial/webserver/src/utils/work_stealing_thread_pool.cc > CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.i
-
-src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.s"
-	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gew/work/tutorial/webserver/src/utils/work_stealing_thread_pool.cc -o CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.s
-
 src/CMakeFiles/chat_core.dir/utils/timer.cc.o: src/CMakeFiles/chat_core.dir/flags.make
 src/CMakeFiles/chat_core.dir/utils/timer.cc.o: /home/gew/work/tutorial/webserver/src/utils/timer.cc
 src/CMakeFiles/chat_core.dir/utils/timer.cc.o: src/CMakeFiles/chat_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chat_core.dir/utils/timer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/chat_core.dir/utils/timer.cc.o"
 	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat_core.dir/utils/timer.cc.o -MF CMakeFiles/chat_core.dir/utils/timer.cc.o.d -o CMakeFiles/chat_core.dir/utils/timer.cc.o -c /home/gew/work/tutorial/webserver/src/utils/timer.cc
 
 src/CMakeFiles/chat_core.dir/utils/timer.cc.i: cmake_force
@@ -198,7 +184,7 @@ src/CMakeFiles/chat_core.dir/utils/timer.cc.s: cmake_force
 src/CMakeFiles/chat_core.dir/db/database_manager.cc.o: src/CMakeFiles/chat_core.dir/flags.make
 src/CMakeFiles/chat_core.dir/db/database_manager.cc.o: /home/gew/work/tutorial/webserver/src/db/database_manager.cc
 src/CMakeFiles/chat_core.dir/db/database_manager.cc.o: src/CMakeFiles/chat_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/CMakeFiles/chat_core.dir/db/database_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/chat_core.dir/db/database_manager.cc.o"
 	cd /home/gew/work/tutorial/webserver/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/chat_core.dir/db/database_manager.cc.o -MF CMakeFiles/chat_core.dir/db/database_manager.cc.o.d -o CMakeFiles/chat_core.dir/db/database_manager.cc.o -c /home/gew/work/tutorial/webserver/src/db/database_manager.cc
 
 src/CMakeFiles/chat_core.dir/db/database_manager.cc.i: cmake_force
@@ -218,7 +204,6 @@ chat_core_OBJECTS = \
 "CMakeFiles/chat_core.dir/chat/user.cc.o" \
 "CMakeFiles/chat_core.dir/utils/thread_pool.cc.o" \
 "CMakeFiles/chat_core.dir/utils/logger.cc.o" \
-"CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o" \
 "CMakeFiles/chat_core.dir/utils/timer.cc.o" \
 "CMakeFiles/chat_core.dir/db/database_manager.cc.o"
 
@@ -232,12 +217,11 @@ src/libchat_core.a: src/CMakeFiles/chat_core.dir/http/http_response.cc.o
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/chat/user.cc.o
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/utils/thread_pool.cc.o
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/utils/logger.cc.o
-src/libchat_core.a: src/CMakeFiles/chat_core.dir/utils/work_stealing_thread_pool.cc.o
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/utils/timer.cc.o
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/db/database_manager.cc.o
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/build.make
 src/libchat_core.a: src/CMakeFiles/chat_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libchat_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/gew/work/tutorial/webserver/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libchat_core.a"
 	cd /home/gew/work/tutorial/webserver/build/src && $(CMAKE_COMMAND) -P CMakeFiles/chat_core.dir/cmake_clean_target.cmake
 	cd /home/gew/work/tutorial/webserver/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chat_core.dir/link.txt --verbose=$(VERBOSE)
 

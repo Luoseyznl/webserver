@@ -3,6 +3,9 @@ add_executable(unit_tests
     utils/thread_pool_test.cc # TEST() 宏
     utils/logger_test.cc
     utils/timer_test.cc
+    http/http_response_test.cc
+    http/http_request_test.cc
+    http/http_server_test.cc
 )
 
 # GTest::gtest_main 是 googletest 提供的 main 入口，类似这样：

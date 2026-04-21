@@ -8,6 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/gew/work/tutorial/webserver/tests/http/http_request_test.cc" "tests/CMakeFiles/unit_tests.dir/http/http_request_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/http/http_request_test.cc.o.d"
+  "/home/gew/work/tutorial/webserver/tests/http/http_response_test.cc" "tests/CMakeFiles/unit_tests.dir/http/http_response_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/http/http_response_test.cc.o.d"
+  "/home/gew/work/tutorial/webserver/tests/http/http_server_test.cc" "tests/CMakeFiles/unit_tests.dir/http/http_server_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/http/http_server_test.cc.o.d"
   "/home/gew/work/tutorial/webserver/tests/test_main.cc" "tests/CMakeFiles/unit_tests.dir/test_main.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/test_main.cc.o.d"
   "/home/gew/work/tutorial/webserver/tests/utils/logger_test.cc" "tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/utils/logger_test.cc.o.d"
   "/home/gew/work/tutorial/webserver/tests/utils/thread_pool_test.cc" "tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o" "gcc" "tests/CMakeFiles/unit_tests.dir/utils/thread_pool_test.cc.o.d"

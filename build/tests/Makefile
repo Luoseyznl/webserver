@@ -185,6 +185,78 @@ unit_tests/fast:
 	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
+http/http_request_test.o: http/http_request_test.cc.o
+.PHONY : http/http_request_test.o
+
+# target to build an object file
+http/http_request_test.cc.o:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_request_test.cc.o
+.PHONY : http/http_request_test.cc.o
+
+http/http_request_test.i: http/http_request_test.cc.i
+.PHONY : http/http_request_test.i
+
+# target to preprocess a source file
+http/http_request_test.cc.i:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_request_test.cc.i
+.PHONY : http/http_request_test.cc.i
+
+http/http_request_test.s: http/http_request_test.cc.s
+.PHONY : http/http_request_test.s
+
+# target to generate assembly for a file
+http/http_request_test.cc.s:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_request_test.cc.s
+.PHONY : http/http_request_test.cc.s
+
+http/http_response_test.o: http/http_response_test.cc.o
+.PHONY : http/http_response_test.o
+
+# target to build an object file
+http/http_response_test.cc.o:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_response_test.cc.o
+.PHONY : http/http_response_test.cc.o
+
+http/http_response_test.i: http/http_response_test.cc.i
+.PHONY : http/http_response_test.i
+
+# target to preprocess a source file
+http/http_response_test.cc.i:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_response_test.cc.i
+.PHONY : http/http_response_test.cc.i
+
+http/http_response_test.s: http/http_response_test.cc.s
+.PHONY : http/http_response_test.s
+
+# target to generate assembly for a file
+http/http_response_test.cc.s:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_response_test.cc.s
+.PHONY : http/http_response_test.cc.s
+
+http/http_server_test.o: http/http_server_test.cc.o
+.PHONY : http/http_server_test.o
+
+# target to build an object file
+http/http_server_test.cc.o:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_server_test.cc.o
+.PHONY : http/http_server_test.cc.o
+
+http/http_server_test.i: http/http_server_test.cc.i
+.PHONY : http/http_server_test.i
+
+# target to preprocess a source file
+http/http_server_test.cc.i:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_server_test.cc.i
+.PHONY : http/http_server_test.cc.i
+
+http/http_server_test.s: http/http_server_test.cc.s
+.PHONY : http/http_server_test.s
+
+# target to generate assembly for a file
+http/http_server_test.cc.s:
+	cd /home/gew/work/tutorial/webserver/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/http/http_server_test.cc.s
+.PHONY : http/http_server_test.cc.s
+
 test_main.o: test_main.cc.o
 .PHONY : test_main.o
 
@@ -295,6 +367,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... unit_tests"
+	@echo "... http/http_request_test.o"
+	@echo "... http/http_request_test.i"
+	@echo "... http/http_request_test.s"
+	@echo "... http/http_response_test.o"
+	@echo "... http/http_response_test.i"
+	@echo "... http/http_response_test.s"
+	@echo "... http/http_server_test.o"
+	@echo "... http/http_server_test.i"
+	@echo "... http/http_server_test.s"
 	@echo "... test_main.o"
 	@echo "... test_main.i"
 	@echo "... test_main.s"
