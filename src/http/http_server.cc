@@ -62,7 +62,6 @@ void HttpServer::addHandler(const std::string& path, const std::string& method,
   handlers_[path][method] = std::move(handler);
 }
 
-// 二段式启动 Two-phase Startup
 void HttpServer::run() {
   is_running_ = true;
   LOG_INFO << "Server started, listening on port " << port_;
@@ -134,7 +133,7 @@ void HttpServer::handleClient(int client_fd) {
       }
     } else if (request.path == "/" ||  // 静态资源请求：首页(/) / file.xxx
                request.path.find('.') != std::string::npos) {
-      std::string path = request.path == "/" ? "/index.html" : request.path;
+      std::string path = request.path == "/" ? "/login.html" : request.path;
       std::string full_path = static_dir_ + path;
       LOG_DEBUG << "Serving static file: " << full_path;
       serveStaticFile(full_path, response);

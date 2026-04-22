@@ -259,7 +259,6 @@ std::vector<std::string> DatabaseManager::getRooms() {
 bool DatabaseManager::addRoomMember(const std::string& room_name,
                                     const std::string& username) {
   std::lock_guard<std::mutex> lock(mutex_);
-  // 利用主键 PRIMARY KEY(room_name, username) 的唯一性。
   // 如果此人已在群里，系统自动忽略报错并返回成功
   const char* sql =
       "INSERT OR IGNORE INTO room_members (room_name, username, joined_at) "

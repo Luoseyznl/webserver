@@ -35,7 +35,7 @@ class HttpServer {
   void addHandler(const std::string& path, const std::string& method,
                   RequestHandler handler);
 
-  void run();
+  void run();  // 引擎层二段式启动
   void stop();
 
  private:

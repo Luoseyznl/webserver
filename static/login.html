@@ -1,123 +1,94 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Chat Login</title>
-    <style>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"> <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <title>Chat Login</title>
+        <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
+            margin: 0; font-family: -apple-system, sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; background-color: #f0f2f5;
         }
-        .login-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 300px;
+        .login-card {
+            background: white; padding: 40px; border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 320px;
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
+        h2 { text-align: center; color: #1c1e21; margin-bottom: 24px; }
+        .input-group { margin-bottom: 16px; }
         input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+            width: 100%; padding: 12px; border: 1px solid #ddd;
+            border-radius: 8px; box-sizing: border-box; outline: none;
         }
+        input:focus { border-color: #1877f2; }
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: #1877f2;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
+            width: 100%; padding: 12px; background: #1877f2; color: white;
+            border: none; border-radius: 8px; font-size: 16px; cursor: pointer;
         }
-        button:hover {
-            background-color: #166fe5;
+        button:hover { background: #166fe5; }
+        .error-msg {
+            color: #d93025; font-size: 14px; margin-top: 12px;
+            text-align: center; min-height: 20px;
         }
-        .register-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .register-link a {
-            color: #1877f2;
-            text-decoration: none;
-        }
-        .register-link a:hover {
-            text-decoration: underline;
-        }
-        .error-message {
-            color: #c00;
-            margin-top: 10px;
-            display: none;
-        }
+        .footer { text-align: center; margin-top: 24px; font-size: 14px; }
+        .footer a { color: #1877f2; text-decoration: none; }
     </style>
-</head>
-<body>
-    <div class="login-container">
-        <h2 style="text-align: center; margin-bottom: 30px;">Welcome to Chat</h2>
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+    </head>
+    <body>
+        <div class="login-card">
+            <h2>登录 Chat</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="用户名" required>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="密码" required>
             </div>
-            <button type="submit">Log In</button>
-            <div id="errorMessage" class="error-message"></div>
-        </form>
-        <div class="register-link">
-            <a href="register.html">Create New Account</a>
+            <button id="loginBtn">登 录</button>
+            <div id="errorBox" class="error-msg"></div>
+            <div class="footer">
+                还没有账号？<a href="register.html">立即注册</a>
+            </div>
         </div>
-    </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
+        <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const errorBox = document.getElementById('errorBox');
+
+        // 使用 async/await 处理异步请求
+        loginBtn.onclick = async () => {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
             
+            if (!username || !password) {
+                errorBox.textContent = '请填写完整信息';
+                return;
+            }
+
             try {
-                const response = await fetch('/login', {
+                const res = await fetch('/login', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
                 });
-                
-                response.json()
-                .then(data => {
-                    if (data.status === 'success') {
-                        // 使用sessionStorage存储用户信息
-                        sessionStorage.setItem('username', username);
-                        sessionStorage.setItem('password', password);
-                        window.location.href = '/chat.html';
-                    } else {
-                        alert('登录失败：' + data.message);
-                    }
-                })
-            } catch (error) {
-                errorMessage.textContent = 'Network error occurred';
-                errorMessage.style.display = 'block';
+
+                const data = await res.json();
+
+                if (res.ok && data.status === 'success') {
+                    // 登录成功，存入 Session 并跳转
+                    sessionStorage.setItem('username', username);
+                    sessionStorage.setItem('password', password); // 实际开发不建议存明文密码
+                    window.location.href = '/chat.html';
+                } else {
+                    // 显示后端返回的错误中文
+                    errorBox.textContent = data.error || '登录失败，请检查账号密码';
+                }
+            } catch (e) {
+                errorBox.textContent = '无法连接到服务器';
             }
-        });
+        };
+
+        // 支持回车登录
+        document.onkeypress = (e) => { if(e.key === 'Enter') loginBtn.click(); };
     </script>
-</body>
+    </body>
 </html>

@@ -7,7 +7,7 @@ namespace {
 
 TEST(HttpRequestTest, ParseSimpleGet) {
   std::string raw =
-      "GET /index.html HTTP/1.1\r\n"
+      "GET /login.html HTTP/1.1\r\n"
       "Host: localhost:8080\r\n"
       "User-Agent: curl/7.68.0\r\n"
       "\r\n";
@@ -15,7 +15,7 @@ TEST(HttpRequestTest, ParseSimpleGet) {
   HttpRequest req = HttpRequest::parse(raw);
 
   EXPECT_EQ(req.method, "GET");
-  EXPECT_EQ(req.path, "/index.html");
+  EXPECT_EQ(req.path, "/login.html");
   EXPECT_EQ(req.headers["Host"], "localhost:8080");
   EXPECT_EQ(req.headers["User-Agent"], "curl/7.68.0");
   EXPECT_TRUE(req.body.empty());

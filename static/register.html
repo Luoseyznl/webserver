@@ -1,136 +1,112 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Chat Register</title>
-    <style>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>注册 Chat 账号</title>
+        <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f2f5;
+            margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; background-color: #f0f2f5;
         }
-        .register-container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 300px;
+        .register-card {
+            background: white; padding: 40px; border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); width: 320px;
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-        }
+        h2 { text-align: center; color: #1c1e21; margin-bottom: 28px; }
+        .input-group { margin-bottom: 16px; }
         input {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+            width: 100%; padding: 12px; border: 1px solid #ddd;
+            border-radius: 8px; box-sizing: border-box; outline: none; transition: border-color 0.2s;
         }
+        /* 注册页使用绿色调，与登录页做视觉区分 */
+        input:focus { border-color: #42b72a; }
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: #42b72a;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
+            width: 100%; padding: 12px; background: #42b72a; color: white;
+            border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background 0.2s;
         }
-        button:hover {
-            background-color: #36a420;
+        button:hover { background: #36a420; }
+        /* 错误信息展示区域 */
+        .error-msg {
+            color: #d93025; font-size: 14px; margin-top: 12px;
+            text-align: center; min-height: 20px;
         }
-        .login-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .login-link a {
-            color: #1877f2;
-            text-decoration: none;
-        }
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-        .error-message {
-            color: #c00;
-            margin-top: 10px;
-            display: none;
-        }
+        .footer { text-align: center; margin-top: 24px; font-size: 14px; color: #65676b; }
+        .footer a { color: #1877f2; text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
     </style>
-</head>
-<body>
-    <div class="register-container">
-        <h2 style="text-align: center; margin-bottom: 30px;">Create New Account</h2>
-        <form id="registerForm">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+    </head>
+    <body>
+        <div class="register-card">
+            <h2>创建新账号</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="用户名" required>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="设置密码"
+                    required>
             </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            <div class="input-group">
+                <input type="password" id="confirmPassword" placeholder="确认密码"
+                    required>
             </div>
-            <button type="submit">Sign Up</button>
-            <div id="errorMessage" class="error-message"></div>
-        </form>
-        <div class="login-link">
-            <a href="login.html">Already have an account?</a>
+            <button id="registerBtn">立即注册</button>
+            <div id="errorBox" class="error-msg"></div>
+            <div class="footer">
+                已有账号？<a href="login.html">返回登录</a>
+            </div>
         </div>
-    </div>
 
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const username = document.getElementById('username').value;
+        <script>
+        const registerBtn = document.getElementById('registerBtn');
+        const errorBox = document.getElementById('errorBox');
+
+        registerBtn.onclick = async () => {
+            const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            if (password !== confirmPassword) {
-                errorMessage.textContent = 'Passwords do not match';
-                errorMessage.style.display = 'block';
+
+            // --- 1. 前端初步校验 ---
+            if (!username || !password) {
+                errorBox.textContent = '请完整填写所有字段';
                 return;
             }
-            
+            if (password !== confirmPassword) {
+                errorBox.textContent = '两次输入的密码不一致';
+                return;
+            }
+
             try {
-                const response = await fetch('/register', {
+                // --- 2. 发送异步注册请求 ---
+                const res = await fetch('/register', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, password })
                 });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    // Store credentials for auto-login
-                    localStorage.setItem('username', username);
-                    localStorage.setItem('password', password);
-                    
-                    // Redirect to chat page
-                    window.location.href = '/chat.html';
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    // --- 3. 注册成功处理 ---
+                    // 按照你的逻辑：注册成功不代表登录，清空旧会话并跳转到登录页
+                    alert('注册成功！快去登录吧');
+                    sessionStorage.clear(); 
+                    window.location.href = '/login.html';
                 } else {
-                    errorMessage.textContent = data.error || 'Registration failed';
-                    errorMessage.style.display = 'block';
+                    // --- 4. 注册失败处理 ---
+                    // 这里 data.error 获取的就是 C++ 后端传回的中文（如：用户名已存在）
+                    errorBox.textContent = data.error || '注册失败，请稍后重试';
                 }
-            } catch (error) {
-                errorMessage.textContent = 'Network error occurred';
-                errorMessage.style.display = 'block';
+            } catch (e) {
+                errorBox.textContent = '服务器连接失败';
             }
+        };
+
+        // 按回车键触发注册
+        document.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') registerBtn.click();
         });
     </script>
-</body>
+    </body>
 </html>
