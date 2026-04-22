@@ -20,7 +20,7 @@ target_include_directories(chat_core PUBLIC
 )
 
 # 链接系统三方库文件（主程序 web_server 不需要知道系统三方库的头文件、编译配置）
-target_link_libraries(chat_core PRIVATE
+target_link_libraries(chat_core PUBLIC
     Threads::Threads # Threads::Threads 是导入目标，内部封装了头文件路径、目标文件路径、链接选项
     SQLite::SQLite3
 )

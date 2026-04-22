@@ -1,6 +1,0 @@
-[2026-04-21 19:41:59.634] [INFO ] [http_server.cc:62] Server started, listening on port 8081
-[2026-04-21 19:41:59.735] [INFO ] [http_server.cc:117] Request: [GET] /test
-[2026-04-21 19:41:59.735] [INFO ] [http_server.cc:117] Request: [GET] /not_exist
-[2026-04-21 19:41:59.735] [WARN ] [http_server.cc:137] Route not found: /not_exist
-[2026-04-21 19:41:59.735] [INFO ] [http_server.cc:94] Stopping HttpServer...
-[2026-04-21 19:41:59.735] [INFO ] [http_server.cc:74] Server listener shutting down gracefully.

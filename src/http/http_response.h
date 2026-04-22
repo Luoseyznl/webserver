@@ -7,11 +7,7 @@ namespace http {
 
 /**
  * @brief HTTP 响应报文 DTO (Data Transfer Object)
- * * 职责：
- * 1. 存储后端逻辑处理后的结果：状态码、响应体、Header
- * 2. 将结构化数据转换为符合 HTTP/1.1 标准的字符串流
- * * 协作：
- * - HttpServer::RequestHandler -> HttpResponse
+ * 将结构化数据转换为符合 HTTP/1.1 标准的字符串流
  */
 class HttpResponse {
  public:

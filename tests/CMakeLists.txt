@@ -6,6 +6,7 @@ add_executable(unit_tests
     http/http_response_test.cc
     http/http_request_test.cc
     http/http_server_test.cc
+    db/database_manager_test.cc
 )
 
 # GTest::gtest_main 是 googletest 提供的 main 入口，类似这样：
@@ -17,7 +18,6 @@ target_link_libraries(unit_tests
     PRIVATE
     GTest::gtest_main
     chat_core
-    Threads::Threads
 )
 
 # 3. 注册到 CTest 框架，通过 'ctest' 即可一键运行所有测试案例

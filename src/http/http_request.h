@@ -7,10 +7,7 @@ namespace http {
 
 /**
  * @brief HTTP 请求报文 DTO
- * * * 职责：
- * 1. 接收来自 Socket 的原始字符串流
- * 2. 将字符串解析为结构化数据
- * 3. 解析 URL 中的 Query Parameters（例如 ?id=1&name=gew）。
+ * 将 request_str 解析为结构化数据
  */
 class HttpRequest {
  public:

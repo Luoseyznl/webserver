@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+#include <cerrno>
 #include <cstring>
 #include <fstream>
 #include <iostream>
@@ -19,35 +20,39 @@ HttpServer::HttpServer(int port)
     : port_(port),
       is_running_(false),
       server_fd_(-1),
-      thread_pool_(std::thread::hardware_concurrency()),  // 最大并发线程数
+      thread_pool_(std::thread::hardware_concurrency()),
       static_dir_("./static") {
+  // 1. 创建 server_fd_: IPv4, TCP, 0（自动推导协议类型）
   server_fd_ = socket(AF_INET, SOCK_STREAM, 0);
   if (server_fd_ < 0) {
     throw std::runtime_error("Failed to create socket");
   }
 
-  int opt = 1;  // 设置端口复用
+  // 2. 配置 server_fd_: 仅开启端口复用（跳过冷却时间），配置值为 1
+  int opt = 1;  //
   if (setsockopt(server_fd_, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt))) {
     throw std::runtime_error("Failed to set socket options");
   }
 
-  sockaddr_in address{};
-  address.sin_family = AF_INET;
-  address.sin_addr.s_addr = INADDR_ANY;  // 监听所有网卡
-  address.sin_port = htons(port_);
+  sockaddr_in address{};                 // IPv4 地址结构体（in 表示 internet）
+  address.sin_family = AF_INET;          // 类型为 AF_INET
+  address.sin_addr.s_addr = INADDR_ANY;  // 监听所有网卡 IP（0.0.0.0）
+  address.sin_port = htons(port_);       // 设置端口号并转为网络字节序（大端序）
 
+  // 3. 将 server_fd_ 与 address 绑定
   if (bind(server_fd_, (struct sockaddr*)&address, sizeof(address)) < 0) {
     throw std::runtime_error("Failed to bind to port");
   }
 
+  // 4. 切换 server_fd_ 为监听状态，将内核建立的连接存入全连接队列中（大小为10）
   if (listen(server_fd_, 10) < 0) {
     throw std::runtime_error("Failed to listen");
   }
 }
 
 HttpServer::~HttpServer() {
-  stop();
-  if (server_fd_ >= 0) {
+  stop();                 // 1. 停止业务逻辑
+  if (server_fd_ >= 0) {  // 2. 资源回收
     close(server_fd_);
   }
 }
@@ -57,6 +62,7 @@ void HttpServer::addHandler(const std::string& path, const std::string& method,
   handlers_[path][method] = std::move(handler);
 }
 
+// 二段式启动 Two-phase Startup
 void HttpServer::run() {
   is_running_ = true;
   LOG_INFO << "Server started, listening on port " << port_;
@@ -65,7 +71,7 @@ void HttpServer::run() {
     sockaddr_in client_addr{};
     socklen_t client_len = sizeof(client_addr);
 
-    // 阻塞等待客户端连接
+    // 1. 从 server_fd_ 的全连接队列中阻塞等待 client_fd
     int client_fd =
         accept(server_fd_, (struct sockaddr*)&client_addr, &client_len);
 
@@ -74,14 +80,16 @@ void HttpServer::run() {
         LOG_INFO << "Server listener shutting down gracefully.";
         break;
       }
+      // errno 故障诊断错误码
       LOG_ERROR << "Failed to accept connection: " << strerror(errno);
       continue;
     }
 
     LOG_DEBUG << "Accepted connection from " << inet_ntoa(client_addr.sin_addr)
               << ":" << ntohs(client_addr.sin_port) << " (fd: " << client_fd
-              << ")";
+              << ")";  // 身份登记
 
+    // 2. 由后端的 ThreadPool 去并发处理 client_fd
     thread_pool_.enqueue([this, client_fd]() {
       handleClient(client_fd);
       return 0;
@@ -94,18 +102,15 @@ void HttpServer::stop() {
     LOG_INFO << "Stopping HttpServer...";
     is_running_ = false;
     if (server_fd_ >= 0) {
-      // 1. 先用 shutdown 彻底切断底层的收发，瞬间唤醒沉睡的 accept
-      shutdown(server_fd_, SHUT_RDWR);
-
-      // 2. 然后再用 close 释放文件描述符资源
-      close(server_fd_);
-      server_fd_ = -1;
+      shutdown(server_fd_, SHUT_RDWR);  // 切断底层网络协议栈，并中断 accept
+      close(server_fd_);  // 减少内核中的文件描述符的引用计数并释放文件描述符
+      server_fd_ = -1;    // 避免悬空引用
     }
   }
 }
 
 void HttpServer::handleClient(int client_fd) {
-  char buffer[4096];
+  char buffer[4096];  // 阻塞等待 client_fd 写入并保持末尾 \0
   ssize_t bytes_read = read(client_fd, buffer, sizeof(buffer) - 1);
 
   if (bytes_read > 0) {
@@ -120,26 +125,26 @@ void HttpServer::handleClient(int client_fd) {
     if (path_it != handlers_.end()) {
       auto method_it = path_it->second.find(request.method);
       if (method_it != path_it->second.end()) {
-        response = method_it->second(request);
-      } else {
+        response = method_it->second(request);  // std::pair<,>::iterator
+      } else {  // method 错误，返回 405 及响应体（JSON 结构化数据）
         LOG_WARN << "Method not allowed: " << request.method << " for "
                  << request.path;
         response = HttpResponse(405, "{\"message\":\"Method not allowed\"}");
         response.headers["Content-Type"] = "application/json";
       }
-    } else if (request.path == "/" ||
+    } else if (request.path == "/" ||  // 静态资源请求：首页(/) / file.xxx
                request.path.find('.') != std::string::npos) {
       std::string path = request.path == "/" ? "/index.html" : request.path;
       std::string full_path = static_dir_ + path;
       LOG_DEBUG << "Serving static file: " << full_path;
       serveStaticFile(full_path, response);
-    } else {
+    } else {  // 业务路径错误
       LOG_WARN << "Route not found: " << request.path;
       response = HttpResponse(404, "{\"message\":\"Not found\"}");
       response.headers["Content-Type"] = "application/json";
     }
 
-    // 跨域支持
+    // 允许来自不同域名的访问（跨域访问）
     response.headers["Access-Control-Allow-Origin"] = "*";
 
     std::string response_str = response.toString();
@@ -165,13 +170,12 @@ void HttpServer::handleClient(int client_fd) {
               << strerror(errno);
   }
 
-  // 关闭连接
   close(client_fd);
 }
 
 void HttpServer::serveStaticFile(const std::string& path,
                                  HttpResponse& response) {
-  struct stat sb;
+  struct stat sb;  // Linux 系统调用，查找文件信息
   if (stat(path.c_str(), &sb) != 0) {
     LOG_WARN << "Static file not found: " << path;
     response = HttpResponse(404, "<h1>404 File Not Found</h1>");
@@ -180,13 +184,10 @@ void HttpServer::serveStaticFile(const std::string& path,
 
   std::string ext = path.substr(path.find_last_of('.') + 1);
   const std::unordered_map<std::string, std::string> mimeTypes = {
-      {"html", "text/html"},
-      {"css", "text/css"},
-      {"js", "application/javascript"},
-      {"json", "application/json"},
-      {"png", "image/png"},
-      {"jpg", "image/jpeg"},
-      {"gif", "image/gif"},
+      {"html", "text/html"},  // MIME 类型字典
+      {"css", "text/css"},          {"js", "application/javascript"},
+      {"json", "application/json"}, {"png", "image/png"},
+      {"jpg", "image/jpeg"},        {"gif", "image/gif"},
       {"ico", "image/x-icon"}};
 
   auto mimeType = mimeTypes.find(ext);
@@ -196,7 +197,7 @@ void HttpServer::serveStaticFile(const std::string& path,
     response.headers["Content-Type"] = "application/octet-stream";
   }
 
-  std::ifstream file(path, std::ios::binary);
+  std::ifstream file(path, std::ios::binary);  // 将资源文件以二进制形式传送
   if (!file) {
     LOG_ERROR << "Failed to open static file for reading: " << path;
     response = HttpResponse(500, "Internal Server Error");

@@ -9,6 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0") # 0 级优化
 
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+# set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+
 # 下载外部的三方库源码（在 ./build/_deps/ 中，）
 include(FetchContent)
 fetchcontent_declare(
@@ -32,4 +35,4 @@ add_subdirectory(src)
 add_subdirectory(tests)
 
 # 将当前 CMakeLists.txt 所在目录下的 static 资源拷贝进构建目录下的 bin 里
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/static/ DESTINATION ${CMAKE_BINARY_DIR}/bin)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/static DESTINATION ${CMAKE_BINARY_DIR}/bin)
