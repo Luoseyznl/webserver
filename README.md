@@ -2,7 +2,7 @@
 
 ![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![CMake](https://img.shields.io/badge/CMake-3.14%2B-brightgreen.svg)
-[![C++ Build and Test](https://github.com/Luoseyznl/webserver/actions/workflows/ci.yml/badge.svg)](https://github.com/Luoseyznl/webserver/actions)
+[![C++ CI Pipeline](https://github.com/Luoseyznl/webserver/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Luoseyznl/webserver/actions)
 
 A real-time Web Chat System built with Modern C++ (C++17). 
 This project serves as an exploration of building robust backend services, focusing on system architecture, protocol parsing, and safe concurrency.

@@ -1,4 +1,4 @@
-name: C++ CI/CD Pipeline
+name: C++ CI Pipeline
 
 on:
   push:
