@@ -4,7 +4,6 @@
         <meta charset="UTF-8">
         <title>Chat Room</title>
         <style>
-        /* 基础样式保留你的原有设计 */
         body { margin: 0; padding: 0; font-family: sans-serif; background-color: #f7f7f7; }
         .container { display: flex; height: 100vh; }
         .sidebar { width: 240px; background-color: white; border-right: 1px solid #e8e8e8; display: flex; flex-direction: column; }
@@ -29,7 +28,6 @@
         input[type="text"] { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
         button { padding: 8px 16px; border: none; border-radius: 6px; background-color: #1890ff; color: white; cursor: pointer; }
         button:disabled { background-color: #ccc; }
-        /* 模态框简易样式 */
         .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
         .modal-content { background: white; margin: 15% auto; padding: 20px; width: 300px; border-radius: 8px; }
     </style>
@@ -81,11 +79,11 @@
         <script>
         let currentRoom = null;
         let username = sessionStorage.getItem('username');
-        let lastMessageTime = 0; // 核心：记录当前房间已收到的最后一条消息的时间戳
+        let lastMessageTime = 0; // 记录当前房间已收到的最后一条消息的时间戳
 
         if (!username) window.location.href = '/login.html';
 
-        // 1. 切换房间：需要清空屏幕并重置时间戳
+        // 1. 切换房间：清空屏幕并重置时间戳
         function joinRoom(roomName) {
             if (currentRoom === roomName) return;
             
@@ -99,11 +97,11 @@
                 lastMessageTime = 0; // 重置为0，代表从头拉取该房间的所有历史消息
                 
                 document.getElementById('roomTitle').textContent = roomName;
-                document.getElementById('messages').innerHTML = ''; // 切换房间时才允许清空屏幕
+                document.getElementById('messages').innerHTML = ''; 
                 document.getElementById('messageInput').disabled = false;
                 document.getElementById('sendButton').disabled = false;
                 
-                loadMessages(); // 立即执行第一次拉取
+                loadMessages();
                 updateRoomUI(roomName);
             }).catch(err => alert(err.message));
         }
@@ -117,18 +115,17 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     room: currentRoom, 
-                    since: lastMessageTime, // 告诉后端：我已经有直到这个时间点的消息了
+                    since: lastMessageTime,
                     username: username 
                 })
             })
             .then(res => res.json())
             .then(messages => {
                 if (messages && messages.length > 0) {
-                    // 更新本地记录的最后时间戳，用于下次轮询
                     const maxTimestamp = Math.max(...messages.map(m => m.timestamp));
                     lastMessageTime = maxTimestamp;
                     
-                    displayMessages(messages); // 将新到的消息追加到 UI
+                    displayMessages(messages); 
                 }
             });
         }
@@ -152,7 +149,7 @@
                     </div>
                     <div class="message-bubble">${msg.content}</div>
                 `;
-                messagesDiv.appendChild(div); // 关键：在末尾追加元素
+                messagesDiv.appendChild(div); // 在末尾追加元素
             });
 
             // 如果用户之前就在底部，则自动滚动以显示新消息
@@ -171,12 +168,11 @@
             }).then(res => {
                 if (res.ok) {
                     input.value = '';
-                    loadMessages(); // 发送成功后立即手动触发拉取，获得即时反馈
+                    loadMessages(); // 发送成功后触发拉取，获得即时反馈
                 }
             });
         }
 
-        // 辅助：更新房间列表的高亮样式
         function updateRoomUI(name) {
             document.querySelectorAll('.room-item').forEach(el => {
                 el.classList.toggle('active', el.querySelector('.room-name').textContent === name);

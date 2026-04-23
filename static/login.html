@@ -54,7 +54,6 @@
         const loginBtn = document.getElementById('loginBtn');
         const errorBox = document.getElementById('errorBox');
 
-        // 使用 async/await 处理异步请求
         loginBtn.onclick = async () => {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -74,12 +73,10 @@
                 const data = await res.json();
 
                 if (res.ok && data.status === 'success') {
-                    // 登录成功，存入 Session 并跳转
                     sessionStorage.setItem('username', username);
                     sessionStorage.setItem('password', password); // 实际开发不建议存明文密码
                     window.location.href = '/chat.html';
                 } else {
-                    // 显示后端返回的错误中文
                     errorBox.textContent = data.error || '登录失败，请检查账号密码';
                 }
             } catch (e) {
@@ -87,7 +84,6 @@
             }
         };
 
-        // 支持回车登录
         document.onkeypress = (e) => { if(e.key === 'Enter') loginBtn.click(); };
     </script>
     </body>

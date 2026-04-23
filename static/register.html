@@ -20,14 +20,12 @@
             width: 100%; padding: 12px; border: 1px solid #ddd;
             border-radius: 8px; box-sizing: border-box; outline: none; transition: border-color 0.2s;
         }
-        /* 注册页使用绿色调，与登录页做视觉区分 */
         input:focus { border-color: #42b72a; }
         button {
             width: 100%; padding: 12px; background: #42b72a; color: white;
             border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background 0.2s;
         }
         button:hover { background: #36a420; }
-        /* 错误信息展示区域 */
         .error-msg {
             color: #d93025; font-size: 14px; margin-top: 12px;
             text-align: center; min-height: 20px;
@@ -67,7 +65,6 @@
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
 
-            // --- 1. 前端初步校验 ---
             if (!username || !password) {
                 errorBox.textContent = '请完整填写所有字段';
                 return;
@@ -78,7 +75,6 @@
             }
 
             try {
-                // --- 2. 发送异步注册请求 ---
                 const res = await fetch('/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -88,14 +84,10 @@
                 const data = await res.json();
 
                 if (res.ok) {
-                    // --- 3. 注册成功处理 ---
-                    // 按照你的逻辑：注册成功不代表登录，清空旧会话并跳转到登录页
                     alert('注册成功！快去登录吧');
                     sessionStorage.clear(); 
                     window.location.href = '/login.html';
                 } else {
-                    // --- 4. 注册失败处理 ---
-                    // 这里 data.error 获取的就是 C++ 后端传回的中文（如：用户名已存在）
                     errorBox.textContent = data.error || '注册失败，请稍后重试';
                 }
             } catch (e) {
@@ -103,7 +95,6 @@
             }
         };
 
-        // 按回车键触发注册
         document.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') registerBtn.click();
         });
