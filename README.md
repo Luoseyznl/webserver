@@ -2,6 +2,7 @@
 
 ![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
 ![CMake](https://img.shields.io/badge/CMake-3.14%2B-brightgreen.svg)
+[![C++ Build and Test](https://github.com/Luoseyznl/webserver/actions/workflows/ci.yml/badge.svg)](https://github.com/Luoseyznl/webserver/actions)
 
 A real-time Web Chat System built with Modern C++ (C++17). 
 This project serves as an exploration of building robust backend services, focusing on system architecture, protocol parsing, and safe concurrency.
@@ -20,7 +21,7 @@ This project serves as an exploration of building robust backend services, focus
 - nlohmann/json (Included in `third_party`)
 
 ## Architecture & Design
-To keep the application logic clean and maintainable, the ChatApplication class acts as a Facade — a unified interface that hides the complexity of underlying subsystems (such as the HTTP server, routing, and database management).
+The ChatApplication class acts as a **Facade** — a unified interface that hides the complexity of underlying subsystems (such as the HTTP server, routing, and database management).
 
 ```
 .
@@ -55,7 +56,3 @@ cd bin
 cd build
 ctest   # ./tests/unit_tests
 ```
-
-
-## License
-MIT License

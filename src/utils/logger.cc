@@ -109,7 +109,8 @@ void Logger::log(LogLevel level, const char* file, const char* function,
 
   // 终端彩色输出
   std::cout << getLevelColor(level) << final_msg << Color::RESET;
-  if (level >= LogLevel::ERROR) std::cout.flush();  // 立即刷新输出缓冲
+  //   if (level >= LogLevel::ERROR)
+  std::cout.flush();  // 立即刷新输出缓冲
 
   getInstance().writeToFile(final_msg);
 }
