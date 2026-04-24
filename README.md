@@ -57,3 +57,9 @@ cd bin
 cd build
 ctest   # ./tests/unit_tests
 ```
+
+4. Docker
+```sh
+docker build -t cpp-chat:v1 --network host --build-arg http_proxy=http://127.0.0.1:7890
+docker run -d -p 8080:8080 --name my_chat_server cpp-chat:v1  
+```
